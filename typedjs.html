@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Load library from the CDN -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+<script src="jquery.counterup.min.js"></script>
+</head>
+<body>
+
+<!-- HTML -->
+<div id="counter"></div>
+
+      <div class="">
+        <h3> <span id="multiple-text"></span> </h3>
+      </div>
+      <script>
+        const typed =new Typed('#multiple-text', {
+          strings: ['Frontend Developer','Flutter Developer','Network Administrator'],
+          typeSpeed: 100,
+          backSpeed:100,
+          backDelay:1000,
+          loop:true
+        });
+      </script>
+
+      <script>
+        // Function to animate the counter
+        function animateCounter(element, start, end, duration) {
+            let startTime = null;
+    
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const progress = Math.min((timestamp - startTime) / duration, 1);
+                const currentValue = Math.floor(progress * (end - start) + start);
+                element.textContent = currentValue + " count+";
+                
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                }
+            }
+    
+            requestAnimationFrame(step);
+        }
+    
+        // Get the counter element
+        const counterElement = document.getElementById('counter');
+    
+        // Animate the counter from 0 to 10 over 2 seconds (2000 milliseconds)
+        animateCounter(counterElement, 0, 30, 2000);
+    </script>
+</body>
+</html>

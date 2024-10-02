@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- .carousel-item {
+        display: none;
+    }
+    .carousel-item.active {
+        display: block;
+    } -->
+    <style>
+        .carousel-item {
+            opacity: 0;
+            transform: translateX(10px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            display: none;
+        }
+
+        .carousel-item.active {
+            opacity: 1;
+            transform: translateX(0);
+            display: block;
+        }
+
+        .carousel-bullet {
+            color: #b2b6ba;
+        }
+        .carousel-bullet.active {
+            color: #3f9ef0;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="carousel relative w-full">
+        <div class="carousel-inner relative overflow-hidden">
+            <div class="carousel-item active relative h-screen bg-fixed bg-center bg-cover" style="background-image: url('http://software.pirthe.com/images/banner-2.jpg');">
+                <div class="absolute inset-0 bg-black opacity-70"></div>
+                <div class="relative container max-w-4xl mx-auto text-center h-full flex flex-col justify-center px-5">
+                    <h3 class="text-3xl uppercase font-normal text-white">WE ARE HERE TO<span class="text-amber-400"> SUPPORT YOU</span></h3>
+                    <h4 class="pt-4 text-4xl font-bold text-white"><span class="text-amber-400">HEALTHCARE MANAGEMENT</span> SYSTEM.</h4>
+                    <p class="font-light my-12 text-white">
+                        Pirthe Healthcare System digitises all transactions, documents, medical records in
+                        Hospitals and Clinics eliminating paper work altogether and provides an online platform
+                        that connects General Public with Doctors providing real time, authentic information
+                        relevant to their need.
+                    </p>
+                    <button class="mt-5">
+                        <a href="index.html#" class="text-white uppercase bg-amber-400 py-3 px-9 rounded-3xl font-bold border border-amber-400 hover:text-amber-400 hover:bg-transparent transition duration-300 ease">Know More</a>
+                    </button>
+                </div>
+            </div>
+            <div class="carousel-item relative h-screen bg-fixed bg-center bg-cover" style="background-image: url('http://software.pirthe.com/images/banner-1.jpg');">
+                <div class="absolute inset-0 bg-black opacity-70"></div>
+                <div class="relative container max-w-4xl mx-auto text-center h-full flex flex-col justify-center px-5">
+                    <h3 class="text-3xl uppercase font-normal text-white">WE ARE HERE TO<span class="text-amber-400"> SUPPORT YOU</span></h3>
+                    <h4 class="pt-4 text-4xl font-bold text-white"><span class="text-amber-400">HEALTHCARE MANAGEMENT</span> SYSTEM.</h4>
+                    <p class="font-light my-12 text-white">
+                        Pirthe Healthcare System digitises all transactions, documents, medical records in
+                        Hospitals and Clinics eliminating paper work altogether and provides an online platform
+                        that connects General Public with Doctors providing real time, authentic information
+                        relevant to their need.
+                    </p>
+                    <button class="mt-5">
+                        <a href="index.html#" class="text-white uppercase bg-amber-400 py-3 px-9 rounded-3xl font-bold border border-amber-400 hover:text-amber-400 hover:bg-transparent transition duration-300 ease">Know More</a>
+                    </button>
+                </div>
+            </div>
+            <div class="carousel-item relative h-screen bg-fixed bg-center bg-cover" style="background-image: url('http://software.pirthe.com/images/banner-4.jpg');">
+                <div class="absolute inset-0 bg-black opacity-70"></div>
+                <div class="relative container max-w-4xl mx-auto text-center h-full flex flex-col justify-center px-5">
+                    <h3 class="text-3xl uppercase font-normal text-white">WE ARE HERE TO<span class="text-amber-400"> SUPPORT YOU</span></h3>
+                    <h4 class="pt-4 text-4xl font-bold text-white"><span class="text-amber-400">HEALTHCARE MANAGEMENT</span> SYSTEM.</h4>
+                    <p class="font-light my-12 text-white">
+                        Pirthe Healthcare System digitises all transactions, documents, medical records in
+                        Hospitals and Clinics eliminating paper work altogether and provides an online platform
+                        that connects General Public with Doctors providing real time, authentic information
+                        relevant to their need.
+                    </p>
+                    <button class="mt-5">
+                        <a href="index.html#" class="text-white uppercase bg-amber-400 py-3 px-9 rounded-3xl font-bold border border-amber-400 hover:text-amber-400 hover:bg-transparent transition duration-300 ease">Know More</a>
+                    </button>
+                </div>
+            </div>
+            <div class="carousel-item relative h-screen bg-fixed bg-center bg-cover" style="background-image: url('https://img.freepik.com/free-vector/realistic-neon-lights-background_23-2148907367.jpg');">
+                <div class="absolute inset-0 bg-black opacity-70"></div>
+                <div class="relative container max-w-4xl mx-auto text-center h-full flex flex-col justify-center px-5">
+                    <h3 class="text-3xl uppercase font-normal text-white">WE ARE HERE TO<span class="text-amber-400"> SUPPORT YOU</span></h3>
+                    <h4 class="pt-4 text-4xl font-bold text-white"><span class="text-amber-400">HEALTHCARE MANAGEMENT</span> SYSTEM.</h4>
+                    <p class="font-light my-12 text-white">
+                        Pirthe Healthcare System digitises all transactions, documents, medical records in
+                        Hospitals and Clinics eliminating paper work altogether and provides an online platform
+                        that connects General Public with Doctors providing real time, authentic information
+                        relevant to their need.
+                    </p>
+                    <button class="mt-5">
+                        <a href="index.html#" class="text-white uppercase bg-amber-400 py-3 px-9 rounded-3xl font-bold border border-amber-400 hover:text-amber-400 hover:bg-transparent transition duration-300 ease">Know More</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Controls -->
+        <button id="prev" class="absolute top-1/2 transform -translate-y-1/2 left-4 text-5xl text-amber-400 hover:text-white border-2 border-amber-400 hover:bg-amber-400 p-2">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button id="next" class="absolute top-1/2 transform -translate-y-1/2 right-4 text-5xl text-amber-400 hover:text-white border-2 border-amber-400 hover:bg-amber-400 p-2">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+        <!-- Indicators -->
+        <div class="absolute left-1/2 bottom-0 carousel-indicators flex justify-center mb-5">
+            <button class="carousel-bullet text-white text-2xl mx-1">•</button>
+            <button class="carousel-bullet text-white text-2xl mx-1">•</button>
+            <button class="carousel-bullet text-white text-2xl mx-1">•</button>
+            <button class="carousel-bullet text-white text-2xl mx-1">•</button>
+        </div>
+    </div>
+
+    <script>
+        const items = document.querySelectorAll('.carousel-item');
+        const bullets = document.querySelectorAll('.carousel-bullet');
+        let currentIndex = 0;
+
+        function updateCarousel(index) {
+            items.forEach((item, i) => {
+                item.classList.toggle('active', i === index);
+                bullets[i].classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % items.length;
+            updateCarousel(currentIndex);
+        }
+
+        document.getElementById('prev').addEventListener('click', () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : items.length - 1;
+            updateCarousel(currentIndex);
+        });
+
+        document.getElementById('next').addEventListener('click', () => {
+            nextSlide();
+        });
+
+        bullets.forEach((bullet, index) => {
+            bullet.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel(currentIndex);
+            });
+        });
+
+        // Automatically change slides every 2 seconds
+        setInterval(nextSlide, 4000);
+    </script>
+    <script src="./tailwind.js"></script>
+</body>
+
+</html>

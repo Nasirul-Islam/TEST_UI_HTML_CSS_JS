@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Elements with Repeating Fade In Animations</title>
+    <style>
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInBottom {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 2000px; /* Just to create enough space to scroll */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .section {
+            margin-top: 200px; /* Place the section somewhere in the middle of the page */
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        .element {
+            width: 30%;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f4f4f4;
+            text-align: center;
+            opacity: 0; /* Start hidden */
+            margin: 10px;
+        }
+
+        .fadeInLeft {
+            animation: fadeInLeft 1s ease-out forwards;
+        }
+
+        .fadeInBottom {
+            animation: fadeInBottom 1s ease-out forwards;
+        }
+
+        .fadeInRight {
+            animation: fadeInRight 1s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    	<h2>
+        Explanation:
+HTML Structure:
+
+The elements to animate are wrapped in a div.section.
+Each div.element now has a data-animation attribute that specifies which animation to apply. You can assign fadeInLeft, fadeInBottom, or fadeInRight to different elements.
+CSS:
+
+The .element class is applied to all elements that need animations. These elements start with opacity: 0 and the animations (fadeInLeft, fadeInBottom, fadeInRight) are defined as before.
+JavaScript:
+
+The IntersectionObserver is created to monitor all elements with the .element class.
+The observerCallback function checks if an element is in the viewport (entry.isIntersecting). If it is, it adds the animation class specified by the element’s data-animation attribute.
+When the element goes out of view, the animation class is removed, so the animation can trigger again when the element re-enters the viewport.
+Adding More Elements:
+To add more elements with different animations, simply add more div elements inside the .section container with the appropriate data-animation value. This setup allows for flexibility and scalability, so you can easily apply different animations to different elements as needed.
+        </h2>
+    <div class="section">
+        <div class="element" data-animation="fadeInLeft">Element 1</div>
+        <div class="element" data-animation="fadeInBottom">Element 2</div>
+        <div class="element" data-animation="fadeInRight">Element 3</div>
+        <div class="element" data-animation="fadeInLeft">Element 4</div>
+        <div class="element" data-animation="fadeInBottom">Element 5</div>
+        <div class="element" data-animation="fadeInRight">Element 6</div>
+    </div>
+    <div>
+    	<h2>
+        Explanation:
+HTML Structure:
+
+The elements to animate are wrapped in a div.section.
+Each div.element now has a data-animation attribute that specifies which animation to apply. You can assign fadeInLeft, fadeInBottom, or fadeInRight to different elements.
+CSS:
+The IntersectionObserver is created to monitor all elements with the .element class.
+The observerCallback function checks if an element is in the viewport (entry.isIntersecting). If it is, it adds the animation class specified by the element’s data-animation attribute.
+When the element goes out of view, the animation class is removed, so the animation can trigger again when the element re-enters the viewport.
+Adding More Elements:
+To add more elements with different animations, simply add more div elements inside the .section container with the appropriate data-animation value. This setup allows for flexibility and scalability, so you can easily apply different animations to different elements as needed.
+The .element class is applied to all elements that need animations. These elements start with opacity: 0 and the animations (fadeInLeft, fadeInBottom, fadeInRight) are defined as before.
+JavaScript:
+The IntersectionObserver is created to monitor all elements with the .element class.
+The observerCallback function checks if an element is in the viewport (entry.isIntersecting). If it is, it adds the animation class specified by the element’s data-animation attribute.
+When the element goes out of view, the animation class is removed, so the animation can trigger again when the element re-enters the viewport.
+Adding More Elements:
+To add more elements with different animations, simply add more div elements inside the .section container with the appropriate data-animation value. This setup allows for flexibility and scalability, so you can easily apply different animations to different elements as needed.
+The IntersectionObserver is created to monitor all elements with the .element class.
+The observerCallback function checks if an element is in the viewport (entry.isIntersecting). If it is, it adds the animation class specified by the element’s data-animation attribute.
+When the element goes out of view, the animation class is removed, so the animation can trigger again when the element re-enters the viewport.
+Adding More Elements:
+To add more elements with different animations, simply add more div elements inside the .section container with the appropriate data-animation value. This setup allows for flexibility and scalability, so you can easily apply different animations to different elements as needed.
+        </h2>
+    <div class="element" data-animation="fadeInRight">Element 7</div>
+    <div class="element" data-animation="fadeInLeft">Element 8</div>
+    </div>
+
+    <script>
+        // Create an Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add(entry.target.dataset.animation);
+                } else {
+                    // Remove the animation class when the element goes out of view
+                    entry.target.classList.remove(entry.target.dataset.animation);
+                }
+            });
+        });
+
+        // Get all elements and observe them
+        document.querySelectorAll('.element').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>

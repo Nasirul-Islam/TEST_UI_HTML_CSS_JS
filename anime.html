@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite RubberBand Animation</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .flex {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+        .text-3xl {
+            font-size: 2rem;
+        }
+        .font-extrabold {
+            font-weight: 800;
+        }
+        .text-violet-400 {
+            color: #7c3aed;
+        }
+    </style>
+</head>
+<body>
+
+<div class="flex flex-col gap-4">
+    <span>rubberBand</span>
+    <span class="animate__animated animate__rubberBand animate__infinite text-3xl font-extrabold text-violet-400">Stretching</span>
+</div>
+
+</body>
+</html>
+<!-- -->     
+<!-- Include animate.css library -->
+
+<!-- Include animate.css library 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite RubberBand Animation with Delay</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .flex {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .text-3xl {
+            font-size: 2rem;
+        }
+
+        .font-extrabold {
+            font-weight: 800;
+        }
+
+        .text-violet-400 {
+            color: #7c3aed;
+        }
+
+        /* Custom class to control the animation timing */
+        .animate-rubberBand-delay {
+            animation: rubberBand 5s ease-in-out infinite;
+            animation-delay: 5s;
+        }
+
+        @keyframes rubberBand {
+            from {
+                transform: scale3d(1, 1, 1);
+            }
+            30% {
+                transform: scale3d(1.25, 0.75, 1);
+            }
+            40% {
+                transform: scale3d(0.75, 1.25, 1);
+            }
+            50% {
+                transform: scale3d(1.15, 0.85, 1);
+            }
+            65% {
+                transform: scale3d(0.95, 1.05, 1);
+            }
+            75% {
+                transform: scale3d(1.05, 0.95, 1);
+            }
+            to {
+                transform: scale3d(1, 1, 1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="flex flex-col gap-4">
+    <span>rubberBand</span>
+    <span class="animate-rubberBand-delay text-3xl font-extrabold text-violet-400">Stretching</span>
+</div>
+
+</body>
+</html>
+
+
+-->
+
+
+
+

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Carousel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styling for arrows */
+        .carousel-btn {
+            @apply absolute top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full;
+        }
+
+        .carousel-btn-left {
+            left: 2%;
+            /* Move slightly inward from the left edge */
+        }
+
+        .carousel-btn-right {
+            right: 2%;
+            /* Move slightly inward from the right edge */
+        }
+    </style>
+</head>
+
+<body>
+
+    <section>
+        <div class="duration-700 ease-in-out flex flex-col justify-center" data-carousel-item>
+            <div class="flex justify-center">
+                <img src="~/images/tas_title.png" alt="tas_title" class="h-12">
+            </div>
+            <div class="text-center">
+                <p class="text-justify px-32 py-12">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint
+                    commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit
+                    fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem.
+                </p>
+                <h5 class="font-bold text-xl">Client/Company Name</h5>
+            </div>
+        </div>
+    </section>
+
+    <div class="flex justify-center items-center min-h-screen bg-gray-100">
+    <div class="relative w-3/5 min-w-[300px] overflow-hidden">
+        <!-- Carousel items -->
+        <div id="carousel" class="flex transition-transform duration-300">
+            <div class="flex-shrink-0 w-full"><img src="https://via.placeholder.com/800x400" alt="Slide 1"
+                    class="w-full h-auto"></div>
+            <div class="flex-shrink-0 w-full"><img src="https://via.placeholder.com/800x400" alt="Slide 2"
+                    class="w-full h-auto"></div>
+            <div class="flex-shrink-0 w-full"><img src="https://via.placeholder.com/800x400" alt="Slide 3"
+                    class="w-full h-auto"></div>
+        </div>
+
+        <!-- Left and right buttons -->
+        <button id="prevBtn" class="carousel-btn carousel-btn-left">‹</button>
+        <button id="nextBtn" class="carousel-btn carousel-btn-right">›</button>
+
+        <!-- Indicators -->
+        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+            <div class="indicator w-3 h-3 bg-gray-400 rounded-full"></div>
+            <div class="indicator w-3 h-3 bg-gray-400 rounded-full"></div>
+            <div class="indicator w-3 h-3 bg-gray-400 rounded-full"></div>
+        </div>
+    </div>
+    </div>
+    <script>
+        const carousel = document.getElementById('carousel');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const indicators = document.querySelectorAll('.indicator');
+        let currentIndex = 0;
+        let autoPlayInterval;
+
+        // Function to update the carousel position and indicators
+        function updateCarousel() {
+            const offset = -currentIndex * 100;
+            carousel.style.transform = `translateX(${offset}%)`;
+            indicators.forEach((ind, idx) => {
+                ind.classList.toggle('bg-gray-800', idx === currentIndex);
+                ind.classList.toggle('bg-gray-400', idx !== currentIndex);
+            });
+        }
+
+        // Move to previous slide
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex === 0) ? 2 : currentIndex - 1;
+            updateCarousel();
+            resetAutoPlay();
+        });
+
+        // Move to next slide
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex === 2) ? 0 : currentIndex + 1;
+            updateCarousel();
+            resetAutoPlay();
+        });
+
+        // Auto-play function: automatically switch slides
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(() => {
+                currentIndex = (currentIndex === 2) ? 0 : currentIndex + 1;
+                updateCarousel();
+            }, 2000); // 2 seconds interval
+        }
+
+        // Reset auto-play whenever the user interacts with the carousel
+        function resetAutoPlay() {
+            clearInterval(autoPlayInterval);
+            startAutoPlay(); // Restart auto-play
+        }
+
+        // Initialize the carousel and start auto-play
+        updateCarousel();
+        startAutoPlay();
+    </script>
+</body>
+
+</html>

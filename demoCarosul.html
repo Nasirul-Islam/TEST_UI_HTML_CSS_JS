@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background: url("http://digital.bnint.com/filelib/s9/photos/white_wood_4500x3000_lo_res.jpg") no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .carousel-item {
+            opacity: 0;
+            transform: translateX(10px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            display: none;
+        }
+
+        .carousel-item.active {
+            opacity: 1;
+            transform: translateX(0);
+            display: block;
+        }
+
+        .carousel-bullet.active {
+            color: #428bca;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="carousel relative w-full max-w-4xl mx-auto mt-10">
+        <div class="carousel-inner relative overflow-hidden">
+            <div class="carousel-item active">
+                <h1 class="text-white text-center text-3xl">i am here</h1>
+                <img src="http://fakeimg.pl/2000x800/0079D8/fff/?text=Without" class="w-full">
+                <h2 class="text-white text-center text-2xl">where are you</h2>
+            </div>
+            <div class="carousel-item">
+                <img src="http://fakeimg.pl/2000x800/DA5930/fff/?text=JavaScript" class="w-full">
+            </div>
+            <div class="carousel-item">
+                <img src="http://fakeimg.pl/2000x800/F90/fff/?text=Carousel" class="w-full">
+            </div>
+        </div>
+        <!-- Controls -->
+        <button id="prev" class="absolute top-1/2 transform -translate-y-1/2 left-4 text-4xl text-white hover:text-gray-300">&lsaquo;</button>
+        <button id="next" class="absolute top-1/2 transform -translate-y-1/2 right-4 text-4xl text-white hover:text-gray-300">&rsaquo;</button>
+        <!-- Indicators -->
+        <div class="carousel-indicators flex justify-center mt-4">
+            <button class="carousel-bullet text-white text-2xl mx-1">•</button>
+            <button class="carousel-bullet text-white text-2xl mx-1">•</button>
+            <button class="carousel-bullet text-white text-2xl mx-1">•</button>
+        </div>
+    </div>
+
+    <script>
+        const items = document.querySelectorAll('.carousel-item');
+        const bullets = document.querySelectorAll('.carousel-bullet');
+        let currentIndex = 0;
+
+        function updateCarousel(index) {
+            items.forEach((item, i) => {
+                item.classList.toggle('active', i === index);
+                bullets[i].classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % items.length;
+            updateCarousel(currentIndex);
+        }
+
+        document.getElementById('prev').addEventListener('click', () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : items.length - 1;
+            updateCarousel(currentIndex);
+        });
+
+        document.getElementById('next').addEventListener('click', () => {
+            nextSlide();
+        });
+
+        bullets.forEach((bullet, index) => {
+            bullet.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel(currentIndex);
+            });
+        });
+
+        // Automatically change slides every 2 seconds
+        setInterval(nextSlide, 2000);
+    </script>
+</body>
+
+</html>

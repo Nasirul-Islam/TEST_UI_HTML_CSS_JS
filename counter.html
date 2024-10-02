@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Counter Up Animation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 2000px; /* Just to create enough space to scroll */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .counter-container {
+            margin-top: 100vh; /* Place the counter somewhere in the middle of the page */
+            text-align: center;
+            padding: 50px;
+            border: 2px solid #000;
+            width: 200px;
+            border-radius: 10px;
+            background-color: #f4f4f4;
+        }
+        #counter {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="counter-container">
+        <div id="counter">0 count+</div>
+    </div>
+
+    <script>
+        // Function to animate the counter
+        function animateCounter(element, start, end, duration) {
+            let startTime = null;
+
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const progress = Math.min((timestamp - startTime) / duration, 1);
+                const currentValue = Math.floor(progress * (end - start) + start);
+                element.textContent = currentValue + " count+";
+                
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                }
+            }
+
+            requestAnimationFrame(step);
+        }
+
+        // Get the counter element
+        const counterElement = document.getElementById('counter');
+
+        // Observe when the counter is in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(counterElement, 0, 100, 2000);
+                    //observer.unobserve(entry.target); // Stop observing after the animation starts
+                }
+            });
+        }, {
+            threshold: 0.5 // Trigger when 50% of the element is in view
+        });
+
+        observer.observe(counterElement);
+    </script>
+</body>
+</html>

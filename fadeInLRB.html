@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Cards with Repeating Fade In Animations</title>
+    <style>
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInBottom {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 2000px; /* Just to create enough space to scroll */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .section {
+            margin-top: 100vh; /* Place the section somewhere in the middle of the page */
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        .card {
+            width: 30%;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f4f4f4;
+            text-align: center;
+            opacity: 0; /* Start hidden */
+        }
+
+        .fadeInLeft {
+            animation: fadeInLeft 1s ease-out forwards;
+        }
+
+        .fadeInBottom {
+            animation: fadeInBottom 1s ease-out forwards;
+        }
+
+        .fadeInRight {
+            animation: fadeInRight 1s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div class="card fadeInLeft-card">Card 1</div>
+        <div class="card fadeInBottom-card">Card 2</div>
+        <div class="card fadeInRight-card">Card 3</div>
+    </div>
+
+    <script>
+        // Intersection Observer callback function
+        const observerCallback = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add(entry.target.dataset.animation);
+                } else {
+                    // Remove the animation class when the card goes out of view
+                    entry.target.classList.remove(entry.target.dataset.animation);
+                }
+            });
+        };
+
+        // Create an Intersection Observer
+        const observer = new IntersectionObserver(observerCallback, {
+            threshold: 0.5 // Trigger when 50% of the element is in view
+        });
+
+        // Get all cards and observe them
+        document.querySelectorAll('.card').forEach(card => {
+            const animationClass = card.classList.contains('fadeInLeft-card') ? 'fadeInLeft' :
+                                   card.classList.contains('fadeInBottom-card') ? 'fadeInBottom' :
+                                   'fadeInRight';
+            card.dataset.animation = animationClass;
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

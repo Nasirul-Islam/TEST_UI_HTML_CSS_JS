@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+    <script src="owlcarousel/jquery.min.js"></script>
+    <script src="owlcarousel/owl.carousel.min.js"></script>
+    <script src="tailwind.js"></script>
+
+    <style>
+        .item {
+            opacity: 0.4;
+            transition: .4s ease all;
+            margin: 0 20px;
+            transform: scale(.8);
+        }
+
+        @media(max-width:1000px) {
+            .item {
+                margin: 0;
+                transform: scale(.9)
+            }
+        }
+
+        .active .item {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .owl-item {
+            -webkit-backface-visibility: hidden;
+            -webkit-transform: translateZ(0) scale(1.0, 1.0);
+        }
+
+        .inner a:hover {
+            border-color: #fff;
+        }
+
+        .black .inner a {
+            color: #000;
+            border-color: rgba(0, 0, 0, 0.4)
+        }
+
+        .black .inner a:hover {
+            border-color: #000;
+        }
+
+        .owl-controls {
+            position: absolute;
+            margin-top: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="mt-20">
+        <div class="owl-carousel">
+            <div class="item">
+                <a href="#">
+                    <div class="bg-white shadow-xl border rounded-md py-20 text-center">
+                        <div class="flex justify-center">
+                            <div class="w-44 ">
+                                <img src="https://cutesolution.com/html/techsoft/assets/img/client/testimonial-2.jpg" alt="nasirul"
+                                class="rounded-full bg-red-200">
+                            </div>
+                        </div>
+                        <div class="w-3/5 mx-auto">
+                            <p class="text-slate-500 text-xl leading-normal text-wrap py-9">
+                                Lorem ipsum
+                                dolor sit amet consectetur adipisicing elit. Ex, a enim molestias accusamus
+                                distinctio, officia quam consequuntur cupiditate repellendus amet assumenda
+                                ad qui minima, perspiciatis in ipsam omnis. Optio, dicta?
+                            </p>
+                            <p class="text-xl text-slate-500 font-medium ">Evana Doe</p>
+                            <p class="text-xl text-[#FFAA17] font-medium ">IT Manager</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <div class="bg-white shadow-xl border rounded-md py-20 text-center">
+                        <div class="flex justify-center">
+                            <div class="w-44 ">
+                                <img src="https://cutesolution.com/html/techsoft/assets/img/client/testimonial-2.jpg" alt="nasirul"
+                                class="rounded-full bg-red-200">
+                            </div>
+                        </div>
+                        <div class="w-3/5 mx-auto">
+                            <p class="text-slate-500 text-xl leading-normal text-wrap py-9">
+                                Lorem ipsum
+                                dolor sit amet consectetur adipisicing elit. Ex, a enim molestias accusamus
+                                distinctio, officia quam consequuntur cupiditate repellendus amet assumenda
+                                ad qui minima, perspiciatis in ipsam omnis. Optio, dicta?
+                            </p>
+                            <p class="text-xl text-slate-500 font-medium ">Evana Doe</p>
+                            <p class="text-xl text-[#FFAA17] font-medium ">IT Manager</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <div class="bg-white shadow-xl border rounded-md py-20 text-center">
+                        <div class="flex justify-center">
+                            <div class="w-44 ">
+                                <img src="https://cutesolution.com/html/techsoft/assets/img/client/testimonial-2.jpg" alt="nasirul"
+                                class="rounded-full bg-red-200">
+                            </div>
+                        </div>
+                        <div class="w-3/5 mx-auto">
+                            <p class="text-slate-500 text-xl leading-normal text-wrap py-9">
+                                Lorem ipsum
+                                dolor sit amet consectetur adipisicing elit. Ex, a enim molestias accusamus
+                                distinctio, officia quam consequuntur cupiditate repellendus amet assumenda
+                                ad qui minima, perspiciatis in ipsam omnis. Optio, dicta?
+                            </p>
+                            <p class="text-xl text-slate-500 font-medium ">Evana Doe</p>
+                            <p class="text-xl text-[#FFAA17] font-medium ">IT Manager</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <div class="bg-white shadow-xl border rounded-md py-20 text-center">
+                        <div class="flex justify-center">
+                            <div class="w-44 ">
+                                <img src="https://cutesolution.com/html/techsoft/assets/img/client/testimonial-2.jpg" alt="nasirul"
+                                class="rounded-full bg-red-200">
+                            </div>
+                        </div>
+                        <div class="w-3/5 mx-auto">
+                            <p class="text-slate-500 text-xl leading-normal text-wrap py-9">
+                                Lorem ipsum
+                                dolor sit amet consectetur adipisicing elit. Ex, a enim molestias accusamus
+                                distinctio, officia quam consequuntur cupiditate repellendus amet assumenda
+                                ad qui minima, perspiciatis in ipsam omnis. Optio, dicta?
+                            </p>
+                            <p class="text-xl text-slate-500 font-medium ">Evana Doe</p>
+                            <p class="text-xl text-[#FFAA17] font-medium ">IT Manager</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <script>
+        $('.owl-carousel').owlCarousel({
+            stagePadding: 200,
+            loop: true,
+            margin: 10,
+            nav: false,
+            items: 1,
+            lazyLoad: true,
+            nav: true,
+            autoplay: false,
+            autoplayTimeout: 2000,
+            autoplayHoverPause: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    stagePadding: 60
+                },
+                600: {
+                    items: 1,
+                    stagePadding: 100
+                },
+                1000: {
+                    items: 1,
+                    stagePadding: 200
+                },
+                1200: {
+                    items: 1,
+                    stagePadding: 250
+                },
+                1400: {
+                    items: 1,
+                    stagePadding: 300
+                },
+                1600: {
+                    items: 1,
+                    stagePadding: 350
+                },
+                1800: {
+                    items: 1,
+                    stagePadding: 400
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

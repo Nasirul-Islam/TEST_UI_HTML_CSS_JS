@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataTable with All Features</title>
+
+    <!-- DataTables and Extensions CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
+
+    <!-- jQuery and DataTables JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+
+    <!-- JSZip for Excel export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+
+    <!-- pdfmake for PDF export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+</head>
+
+<body>
+    <table id="example" class="display nowrap" style="width:100%">
+        <thead>
+            <tr>
+                <th>SL.NO.</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+                <th>Extn.</th>
+                <th>E-mail</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>SL.NO.</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+                <th>Extn.</th>
+                <th>E-mail</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Tiger</td>
+                <td>Nixon</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>2011-04-25</td>
+                <td>$320,800</td>
+                <td>5421</td>
+                <td>t.nixon@datatables.net</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Garrett</td>
+                <td>Winters</td>
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td>63</td>
+                <td>2011-07-25</td>
+                <td>$170,750</td>
+                <td>8422</td>
+                <td>g.winters@datatables.net</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Ashton</td>
+                <td>Cox</td>
+                <td>Junior Technical Author</td>
+                <td>San Francisco</td>
+                <td>66</td>
+                <td>2009-01-12</td>
+                <td>$86,000</td>
+                <td>1562</td>
+                <td>a.cox@datatables.net</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Cedric</td>
+                <td>Kelly</td>
+                <td>Senior Javascript Developer</td>
+                <td>Edinburgh</td>
+                <td>22</td>
+                <td>2012-03-29</td>
+                <td>$433,060</td>
+                <td>6224</td>
+                <td>c.kelly@datatables.net</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Airi</td>
+                <td>Satou</td>
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td>33</td>
+                <td>2008-11-28</td>
+                <td>$162,700</td>
+                <td>5407</td>
+                <td>a.satou@datatables.net</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Brielle</td>
+                <td>Williamson</td>
+                <td>Integration Specialist</td>
+                <td>New York</td>
+                <td>61</td>
+                <td>2012-12-02</td>
+                <td>$372,000</td>
+                <td>4804</td>
+                <td>b.williamson@datatables.net</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Herrod</td>
+                <td>Chandler</td>
+                <td>Sales Assistant</td>
+                <td>San Francisco</td>
+                <td>59</td>
+                <td>2012-08-06</td>
+                <td>$137,500</td>
+                <td>9608</td>
+                <td>h.chandler@datatables.net</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Rhona</td>
+                <td>Davidson</td>
+                <td>Integration Specialist</td>
+                <td>Tokyo</td>
+                <td>55</td>
+                <td>2010-10-14</td>
+                <td>$327,900</td>
+                <td>6200</td>
+                <td>r.davidson@datatables.net</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Colleen</td>
+                <td>Hurst</td>
+                <td>Javascript Developer</td>
+                <td>San Francisco</td>
+                <td>39</td>
+                <td>2009-09-15</td>
+                <td>$205,500</td>
+                <td>2360</td>
+                <td>c.hurst@datatables.net</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Sonya</td>
+                <td>Frost</td>
+                <td>Software Engineer</td>
+                <td>Edinburgh</td>
+                <td>23</td>
+                <td>2008-12-13</td>
+                <td>$103,600</td>
+                <td>1667</td>
+                <td>s.frost@datatables.net</td>
+            </tr>
+            <!-- Add more rows here -->
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function () {
+            // DataTable initialization
+            var table = $('#example').DataTable({
+                responsive: true,   // Enable responsive table
+                dom: 'Bfrtip',      // Add buttons and other UI controls
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print', 'colvis'  // Export and column visibility buttons
+                ],
+                initComplete: function () {
+                    // Column filtering functionality
+                    this.api().columns().every(function () {
+                        var column = this;
+                        var input = $('<input type="text" placeholder="Search" />')
+                            .appendTo($(column.footer()).empty())
+                            .on('keyup change', function () {
+                                if (column.search() !== this.value) {
+                                    column
+                                        .search(this.value)
+                                        .draw();
+                                }
+                            });
+                    });
+                }
+            });
+
+            // Attach buttons to the DOM
+            table.buttons().container().appendTo('#example_wrapper .col-md-6:eq(0)');
+        });
+    </script>
+</body>
+
+</html>

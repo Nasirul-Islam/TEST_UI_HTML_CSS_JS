@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataTable with Features</title>
+
+    <!-- DataTables and extensions CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
+
+    <!-- jQuery and DataTables JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+</head>
+
+<body>
+    <table id="example" class="display nowrap" style="width:100%">
+        <thead>
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+                <th>Extn.</th>
+                <th>E-mail</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tiger</td>
+                <td>Nixon</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>2011-04-25</td>
+                <td>$320,800</td>
+                <td>5421</td>
+                <td>t.nixon@datatables.net</td>
+            </tr>
+            <tr>
+                <td>Garrett</td>
+                <td>Winters</td>
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td>63</td>
+                <td>2011-07-25</td>
+                <td>$170,750</td>
+                <td>8422</td>
+                <td>g.winters@datatables.net</td>
+            </tr>
+            <tr>
+                <td>Ashton</td>
+                <td>Cox</td>
+                <td>Junior Technical Author</td>
+                <td>San Francisco</td>
+                <td>66</td>
+                <td>2009-01-12</td>
+                <td>$86,000</td>
+                <td>1562</td>
+                <td>a.cox@datatables.net</td>
+            </tr>
+            <tr>
+                <td>Cedric</td>
+                <td>Kelly</td>
+                <td>Senior Javascript Developer</td>
+                <td>Edinburgh</td>
+                <td>22</td>
+                <td>2012-03-29</td>
+                <td>$433,060</td>
+                <td>6224</td>
+                <td>c.kelly@datatables.net</td>
+            </tr>
+            <tr>
+                <td>Tiger</td>
+                <td>Nixon</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>2011-04-25</td>
+                <td>$320,800</td>
+                <td>5421</td>
+                <td>t.nixon@datatables.net</td>
+            </tr>
+            <tr>
+                <td>Garrett</td>
+                <td>Winters</td>
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td>63</td>
+                <td>2011-07-25</td>
+                <td>$170,750</td>
+                <td>8422</td>
+                <td>g.winters@datatables.net</td>
+            </tr>
+            <tr>
+                <td>Ashton</td>
+                <td>Cox</td>
+                <td>Junior Technical Author</td>
+                <td>San Francisco</td>
+                <td>66</td>
+                <td>2009-01-12</td>
+                <td>$86,000</td>
+                <td>1562</td>
+                <td>a.cox@datatables.net</td>
+            </tr>
+            <tr>
+                <td>Cedric</td>
+                <td>Kelly</td>
+                <td>Senior Javascript Developer</td>
+                <td>Edinburgh</td>
+                <td>22</td>
+                <td>2012-03-29</td>
+                <td>$433,060</td>
+                <td>6224</td>
+                <td>c.kelly@datatables.net</td>
+            </tr>
+            <tr>
+                <td>Tiger</td>
+                <td>Nixon</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>2011-04-25</td>
+                <td>$320,800</td>
+                <td>5421</td>
+                <td>t.nixon@datatables.net</td>
+            </tr>
+            <tr>
+                <td>Garrett</td>
+                <td>Winters</td>
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td>63</td>
+                <td>2011-07-25</td>
+                <td>$170,750</td>
+                <td>8422</td>
+                <td>g.winters@datatables.net</td>
+            </tr>
+            <tr>
+                <td>Ashton</td>
+                <td>Cox</td>
+                <td>Junior Technical Author</td>
+                <td>San Francisco</td>
+                <td>66</td>
+                <td>2009-01-12</td>
+                <td>$86,000</td>
+                <td>1562</td>
+                <td>a.cox@datatables.net</td>
+            </tr>
+            <tr>
+                <td>Cedric</td>
+                <td>Kelly</td>
+                <td>Senior Javascript Developer</td>
+                <td>Edinburgh</td>
+                <td>22</td>
+                <td>2012-03-29</td>
+                <td>$433,060</td>
+                <td>6224</td>
+                <td>c.kelly@datatables.net</td>
+            </tr>
+            <!-- Add more rows here -->
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function () {
+            // DataTable initialization
+            var table = $('#example').DataTable({
+                responsive: true,   // Enable responsive table
+                dom: 'Bfrtip',      // Add buttons and other UI controls
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print', 'colvis'  // Export and column visibility buttons
+                ],
+                initComplete: function () {
+                    // Column filtering functionality
+                    this.api().columns().every(function () {
+                        var column = this;
+                        var input = $('<input type="text" placeholder="Search" />')
+                            .appendTo($(column.footer()).empty())
+                            .on('keyup change', function () {
+                                if (column.search() !== this.value) {
+                                    column
+                                        .search(this.value)
+                                        .draw();
+                                }
+                            });
+                    });
+                }
+            });
+
+            // Attach buttons to the DOM
+            table.buttons().container().appendTo('#example_wrapper .col-md-6:eq(0)');
+        });
+
+
+        // $(document).ready(function () {
+        //     $('#example').DataTable({
+        //         responsive: true,
+        //         colReorder: true,
+        //         pageLength: 5,    // Default number of rows per page
+        //         lengthMenu: [5, 10, 25, 50],  // Page length options
+        //         pagingType: "full_numbers",   // Full pagination controls
+        //         dom: 'Bfrtip',
+        //         buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
+        //         initComplete: function () {
+        //             this.api().columns().every(function () {
+        //                 var column = this;
+        //                 var input = $('<input type="text" placeholder="Search" />')
+        //                     .appendTo($(column.footer()).empty())
+        //                     .on('keyup change', function () {
+        //                         if (column.search() !== this.value) {
+        //                             column.search(this.value).draw();
+        //                         }
+        //                     });
+        //             });
+        //         }
+        //     });
+        // });
+    </script>
+</body>
+
+</html>
